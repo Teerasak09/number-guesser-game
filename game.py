@@ -1,13 +1,25 @@
 import random
 
-print("🎮 Welcome to the Number Guessing Game!")
-secret = random.randint(1, 10)
-guess = int(input("Guess a number between 1 and 10: "))
-
-if guess == secret:
-    print("🎉 Correct! You win!")
-else:
-    print(f"❌ Sorry, the number was {secret}. Better luck next time!")
 def get_player_guess():
     guess = int(input("Enter your guess: "))
     return guess
+
+def check_guess(secret, guess):
+    if guess < secret:
+        print("Too low!")
+        return False
+    elif guess > secret:
+        print("Too high!")
+        return False
+    else:
+        print("Correct!")
+        return True
+
+def play_game():
+    secret_number = random.randint(1, 100)
+    correct = False
+    while not correct:
+        guess = get_player_guess()
+        correct = check_guess(secret_number, guess)
+
+play_game()
