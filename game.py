@@ -8,3 +8,6 @@ if guess == secret:
     print("🎉 Correct! You win!")
 else:
     print(f"❌ Sorry, the number was {secret}. Better luck next time!")
+def get_player_guess():
+    guess = int(input("Enter your guess: "))
+    return guess
